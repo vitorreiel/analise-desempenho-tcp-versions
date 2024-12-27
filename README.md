@@ -17,9 +17,11 @@ Este projeto realiza uma análise de desempenho de diferentes versões do TCP (c
 
 2. **Topologia de Rede**:
    - O script Python cria uma topologia de rede com 2 roteadores e 2 hosts, configurados para IPv4 e IPv6.
-
-   <img src="topologia/img.png">
-   
+<br>
+   <p align="center">
+     <img src="topologia/img.png" alt="Topologia de Rede">
+   </p>
+<br>   
 3. **Entrada de Parâmetros**:
    - O usuário deve fornecer as seguintes configurações ao iniciar o script Python:
      - **Taxa de transferência (Gbps):** Taxa máxima de transmissão nos links.
