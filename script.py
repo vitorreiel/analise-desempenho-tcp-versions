@@ -12,7 +12,6 @@ import matplotlib.pyplot as plt
 from colorama import Fore, Style
 
 def enable_ip_forwarding(router):
-    """Ativa o encaminhamento de pacotes IPv4 e IPv6 em um roteador."""
     router.cmd("sysctl -w net.ipv4.ip_forward=1")
     router.cmd("sysctl -w net.ipv6.conf.all.forwarding=1")
 
@@ -20,7 +19,7 @@ def create_topology(bw, loss, delay):
     """Create a simple Mininet topology with 2 routers and 2 hosts."""
     net = Mininet(link=TCLink)
 
-    print("Creating network topology...")
+    print("Criando topologia da rede...")
     
     # Add routers
     r1 = net.addHost("r1", ip="10.0.1.1/24")
@@ -71,7 +70,7 @@ def configure_tcp_version(host, tcp_version):
 
 def measure_metrics(net, h1, h2, output_csv, output_log, test_id, tcp_version, ip_version):
     """Measure TCP performance metrics and save them to a CSV file and a log file."""
-    print(f"Starting TCP performance tests for {tcp_version} with {ip_version}...")
+    print(f"Iniciando testes TCP versão: {tcp_version} com {ip_version}...")
 
     configure_tcp_version(h1, tcp_version)
     configure_tcp_version(h2, tcp_version)
@@ -87,7 +86,7 @@ def measure_metrics(net, h1, h2, output_csv, output_log, test_id, tcp_version, i
     os.makedirs("output", exist_ok=True)
 
     with open(output_log, 'a') as log_file:
-        print("Running iperf test...")
+        print("Rodando testes iperf...")
         log_file.write(f"Running iperf test for {tcp_version} with {ip_version}...\n")
 
         cpu_usage_before = psutil.cpu_percent(interval=1)
@@ -140,12 +139,12 @@ def measure_metrics(net, h1, h2, output_csv, output_log, test_id, tcp_version, i
             writer.writeheader()
         writer.writerows(metrics)
 
-    print(f"Metrics saved to {output_filename}")
-    print(f"Full output saved to {output_log}")
+    print(f"Métricas salvas em: {output_filename}")
+    print(f"Saída completa salva em: {output_log}")
 
 def cleanup(net):
     """Stop the Mininet network and clean up processes."""
-    print("Stopping network...")
+    print("Destruindo cenário de rede...")
     net.stop()
     os.system("pkill -f iperf3")
 
