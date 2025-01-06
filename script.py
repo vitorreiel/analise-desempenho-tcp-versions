@@ -69,8 +69,6 @@ def configure_tcp_version(host, tcp_version):
     host.cmd(f"sysctl -w net.ipv4.tcp_congestion_control={tcp_version}")
 
 def measure_metrics(net, h1, h2, output_csv, output_log, test_id, tcp_version, ip_version):
-    """Measure TCP performance metrics and save them to a CSV file and a log file."""
-    print(f"Iniciando testes TCP versão: {tcp_version} com {ip_version}...")
 
     configure_tcp_version(h1, tcp_version)
     configure_tcp_version(h2, tcp_version)
@@ -256,7 +254,7 @@ if __name__ == '__main__':
     for tcp_version in tcp_versions:
         for ip_version in ip_versions:
             for test_id in range(1, repetitions + 1):
-                print(f"Starting test {test_id} for TCP {tcp_version} and {ip_version}")
+                print(f"\nIniciando testes TCP versão: {tcp_version} com {ip_version}...")
                 net, h1, h2 = create_topology(bw, loss, delay)
                 try:
                     measure_metrics(net, h1, h2, f"dataset/dataset_{ip_version.lower()}_{tcp_version.lower()}.csv", output_log, test_id, tcp_version, ip_version)
