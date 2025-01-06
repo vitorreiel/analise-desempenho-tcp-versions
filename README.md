@@ -6,9 +6,10 @@ Este projeto realiza uma análise de desempenho de diferentes versões do TCP (c
 
 - **script.py**: Arquivo principal que implementa a topologia, realiza os testes e gera os gráficos.
 - **start.sh**: Script de inicialização para instalar as dependências e executar o experimento.
-- **dataset/**: Pasta onde os resultados dos testes serão salvos em formato CSV.
-- **output/**: Pasta que contém a saída completa de todas as execuções do iperf.
-- **graficos/**: Pasta com os gráficos gerados para as métricas analisadas, incluindo as médias e intervalos de confiança.
+- **dataset**: Pasta onde os resultados dos testes serão salvos em formato CSV.
+- **output**: Pasta que contém a saída completa de todas as execuções do iperf.
+- **graficos**: Pasta com os gráficos gerados para as métricas analisadas, incluindo as médias e intervalos de confiança.
+- **tabelas**: Pasta com as tabelas geradas pelos resultados dos testes que foram salvos em CSV.
 
 ## Funcionalidades
 
@@ -32,15 +33,10 @@ Este projeto realiza uma análise de desempenho de diferentes versões do TCP (c
      - **Número de repetições:** Quantidade de vezes que os testes serão executados.
 
 4. **Armazenamento de Resultados**:
-   - **dataset/**: Resultados dos testes em formato CSV.
-   - **output/**: Logs detalhados de todas as execuções do iperf.
-   - **graficos/**: Gráficos das métricas de desempenho, organizados em subpastas.
-
-5. **Visualização Web**:
-   - Ao final da execução do script Python, os gráficos serão disponibilizados em uma página web acessível em:
-     ```
-     http://localhost:8080
-     ```
+   - **dataset**: Resultados dos testes em formato CSV.
+   - **output**: Logs detalhados de todas as execuções do iperf.
+   - **graficos**: Gráficos das métricas de desempenho, organizados em subpastas.
+   - **tabelas**: Tabelas dos resultados dos testes que foram salvos em CSV.
 
 ## Como Usar
 
@@ -59,11 +55,7 @@ Este projeto realiza uma análise de desempenho de diferentes versões do TCP (c
    - A execução do experimento criará os arquivos na pasta `dataset/` e logs na pasta `output/`.
 
 4. **Visualize os Resultados**:
-   - Os gráficos serão gerados e salvos na pasta `graficos/`.
-   - Para acessar os gráficos pela web, abra o link:
-     ```
-     http://localhost:8080
-     ```
+   - Os gráficos e tabelas serão gerados e salvos nas pastas `graficos/` e `tabelas/`.
 
 ## Métricas Analisadas
 
